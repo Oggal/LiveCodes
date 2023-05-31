@@ -3,6 +3,7 @@
 import cmd
 
 from demos.fizzbuzz import fizzbuzz
+from demos.recursion import NoisyFib
 
 
 class WombatConsole(cmd.Cmd):
@@ -14,6 +15,15 @@ class WombatConsole(cmd.Cmd):
         """Prints fizzbuzz up to top"""
         try:
             fizzbuzz(int(line))
+        except ValueError:
+            print("Please enter a number...")
+
+    def do_fibinoisy(self, line):
+        """Prints fibonacci up to N"""
+        try:
+            res = NoisyFib.NoisyFib(int(line))
+            print()
+            print("Result: {}".format(res))
         except ValueError:
             print("Please enter a number...")
 
