@@ -4,6 +4,7 @@ import cmd
 
 from demos.fizzbuzz import fizzbuzz
 from demos.primes import PrimeFinder
+from demos.recursion import NoisyFib
 
 IsPrime = PrimeFinder.checkPrime
 
@@ -27,6 +28,15 @@ class WombatConsole(cmd.Cmd):
                 print("{} is prime".format(line))
             else:
                 print("{} is not prime".format(line))
+        except ValueError:
+            print("Please enter a number...")
+
+    def do_fibinoisy(self, line):
+        """Prints fibonacci up to N"""
+        try:
+            res = NoisyFib.NoisyFib(int(line))
+            print()
+            print("Result: {}".format(res))
         except ValueError:
             print("Please enter a number...")
 
